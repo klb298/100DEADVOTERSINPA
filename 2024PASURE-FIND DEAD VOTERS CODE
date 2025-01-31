@@ -1,0 +1,110 @@
+#### 2024 PENNSYLVANIA STATEWIDE UNIFORM REGISTRY OF ELECTORS - FIND DEAD VOTERS
+
+# 10.25.24
+Mail_102524 <- read.csv("Mail_102524.csv")
+Oct_25 <- data.frame(Mail_102524$CountyID,Mail_102524$CountyName,Mail_102524$IDNumber,Mail_102524$FirstName,Mail_102524$MiddleName,Mail_102524$LastName,Mail_102524$Addr1,Mail_102524$Addr2,Mail_102524$CSZ,Mail_102524$Country,Mail_102524$Party,Mail_102524$DateofBirth,Mail_102524$MailApplicationType,Mail_102524$PrecinctDesc,Mail_102524$AppIssueDate,Mail_102524$BallotReturnedDate,Mail_102524$`Perm Indicator`,Mail_102524$`Ballot Application Disposition`,Mail_102524$`ID verification status`,Mail_102524$`Ballot status reason`)
+Oct_25_VOTED <- subset(Oct_25, Oct_25$Mail_102524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+table(Oct_25$Mail_102524.Party)
+table(Oct_25$Mail_102524..Ballot.status.reason.)
+Bucks_Oct25 <- subset(Oct_25, Oct_25$Mail_102524.CountyName == "BUCKS")
+BUCKS_BALLOT_RETURNED1025 <- subset(Bucks_Oct25, Bucks_Oct25$Mail_102524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+TOTAL_BALLOT_RETURNED1025 <- subset(Oct_25, Oct_25$Mail_102524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+PHILADELPHIA_OCT25 <- subset(Oct_25, Oct_25$Mail_102524.CountyName == "PHILADELPHIA")
+DAUPHIN_OCT25 <- subset(Oct_25, Oct_25$Mail_102524.CountyName == "DAUPHIN")
+Philadelphia_1025_VOTED <- subset(PHILADELPHIA_OCT25, PHILADELPHIA_OCT25$Mail_102524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Dauphin_1025_VOTED <- subset(DAUPHIN_OCT25, DAUPHIN_OCT25$Mail_102524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Bucks_1025_VOTED <- subset(Bucks_Oct25, Bucks_Oct25$Mail_102524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+
+
+### 10.31.24
+Mail_103124 <- read.csv("Mail_103124.csv")
+Bucks_Oct31 <- subset(Oct_31, Oct_31$Mail_103124.CountyName == "BUCKS")
+Bucks_1031_VOTED <- subset(Bucks_Oct31, Bucks_Oct31$Mail_103124..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Bucks_1031_counts <- table(Bucks_1031_VOTED$Mail_103124.Addr1)
+Oct_31 <- data.frame(Mail_103124$CountyID,Mail_103124$CountyName,Mail_103124$IDNumber,Mail_103124$FirstName,Mail_103124$MiddleName,Mail_103124$LastName,Mail_103124$Addr1,Mail_103124$Addr2,Mail_103124$CSZ,Mail_103124$Country,Mail_103124$Party,Mail_103124$DateofBirth,Mail_103124$MailApplicationType,Mail_103124$PrecinctDesc,Mail_103124$AppIssueDate,Mail_103124$BallotReturnedDate,Mail_103124$`Perm Indicator`,Mail_103124$`Ballot Application Disposition`,Mail_103124$`ID verification status`,Mail_103124$`Ballot status reason`)
+OCT_31_VOTED <- subset(Oct_31, Oct_31$Mail_103124..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+### ballot hotspot finder feature (more than 6 requests to a single ADDR1)
+Bucks_Shared_addresses <- names(Bucks_1031_counts[Bucks_1031_counts > 6])
+
+### 11.02.24
+Nov_2 <- data.frame(Mail_110224$CountyID,Mail_110224$CountyName,Mail_110224$IDNumber,Mail_110224$FirstName,Mail_110224$MiddleName,Mail_110224$LastName,Mail_110224$Addr1,Mail_110224$Addr2,Mail_110224$CSZ,Mail_110224$Country,Mail_110224$Party,Mail_110224$DateofBirth,Mail_110224$MailApplicationType,Mail_110224$PrecinctDesc,Mail_110224$AppIssueDate,Mail_110224$BallotReturnedDate,Mail_110224$`Perm Indicator`,Mail_110224$`Ballot Application Disposition`,Mail_110224$`ID verification status`,Mail_110224$`Ballot status reason`)
+NOV_2_VOTED <- subset(Nov_2, Nov_2$Mail_110224..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Bucks_1102_VOTED <- subset(NOV_2_VOTED, NOV_2_VOTED$Mail_110224.CountyName == "BUCKS")
+Bucks_1102 <- subset(Nov_2, Nov_2$Mail_110224.CountyName == "BUCKS")
+table(Nov_2$Mail_110224..Ballot.status.reason.)
+table(NOV_2_VOTED$Mail_110224.CountyName)
+NOV_2_VOTED_R <- subset(NOV_2_VOTED, NOV_2_VOTED$Mail_110224.Party == "R")
+NOV_2_VOTED_D <- subset(NOV_2_VOTED, NOV_2_VOTED$Mail_110224.Party == "D")
+table(NOV_2_VOTED_R$Mail_110224.CountyName)
+table(NOV_2_VOTED_D$Mail_110224.CountyName)
+
+
+### 11.03.24
+Nov_3 <- data.frame(Mail_110324$CountyID,Mail_110324$CountyName,Mail_110324$IDNumber,Mail_110324$FirstName,Mail_110324$MiddleName,Mail_110324$LastName,Mail_110324$Addr1,Mail_110324$Addr2,Mail_110324$CSZ,Mail_110324$Country,Mail_110324$Party,Mail_110324$DateofBirth,Mail_110324$MailApplicationType,Mail_110324$PrecinctDesc,Mail_110324$AppIssueDate,Mail_110324$BallotReturnedDate,Mail_110324$`Perm Indicator`,Mail_110324$`Ballot Application Disposition`,Mail_110324$`ID verification status`,Mail_110324$`Ballot status reason`)
+Nov_3_VOTED <- subset(Nov_3, Nov_3$Mail_110324..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Bucks_1103_VOTED <- subset(Nov_3_VOTED, Nov_3_VOTED$Mail_110324.CountyName == "BUCKS")
+Bucks_1103 <- subset(Nov_3, Nov_3$Mail_110324.CountyName == "BUCKS")
+table(Nov_3$Mail_110324..Ballot.status.reason.)
+table(Nov_3_VOTED$Mail_110324.Party)
+table(Nov_3_VOTED$Mail_110324.CountyName)
+Nov_3_VOTED_R <- subset(Nov_3_VOTED, Nov_3_VOTED$Mail_110324.Party == "R")
+Nov_3_VOTED_D <- subset(Nov_3_VOTED, Nov_3_VOTED$Mail_110324.Party == "D")
+table(Nov_3_VOTED_R$Mail_110324.CountyName)
+table(Nov_3_VOTED_D$Mail_110324.CountyName)
+
+### 11.04.24
+Nov_4 <- data.frame(Mail_110424$CountyID,Mail_110424$CountyName,Mail_110424$IDNumber,Mail_110424$FirstName,Mail_110424$MiddleName,Mail_110424$LastName,Mail_110424$Addr1,Mail_110424$Addr2,Mail_110424$CSZ,Mail_110424$Country,Mail_110424$Party,Mail_110424$DateofBirth,Mail_110424$MailApplicationType,Mail_110424$PrecinctDesc,Mail_110424$AppIssueDate,Mail_110424$BallotReturnedDate,Mail_110424$`Perm Indicator`,Mail_110424$`Ballot Application Disposition`,Mail_110424$`ID verification status`,Mail_110424$`Ballot status reason`)
+Nov_4_VOTED <- subset(Nov_4, Nov_4$Mail_110424..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Bucks_1104_VOTED <- subset(Nov_4_VOTED, Nov_4_VOTED$Mail_110424.CountyName == "BUCKS")
+Bucks_1104 <- subset(Nov_4, Nov_4$Mail_110424.CountyName == "BUCKS")
+table(Nov_4$Mail_110424..Ballot.status.reason.)
+table(Nov_4_VOTED$Mail_110424.Party)
+table(Nov_4_VOTED$Mail_110424.CountyName)
+Nov_4_VOTED_R <- subset(Nov_4_VOTED, Nov_4_VOTED$Mail_110424.Party == "R")
+Nov_4_VOTED_D <- subset(Nov_4_VOTED, Nov_4_VOTED$Mail_110424.Party == "D")
+table(Nov_4_VOTED_R$Mail_110424.CountyName)
+table(Nov_4_VOTED_D$Mail_110424.CountyName)
+
+
+
+
+
+
+### 11.05.24
+Nov_5 <- data.frame(Mail_110524$CountyID,Mail_110524$CountyName,Mail_110524$IDNumber,Mail_110524$FirstName,Mail_110524$MiddleName,Mail_110524$LastName,Mail_110524$Addr1,Mail_110524$Addr2,Mail_110524$CSZ,Mail_110524$Country,Mail_110524$Party,Mail_110524$DateofBirth,Mail_110524$MailApplicationType,Mail_110524$PrecinctDesc,Mail_110524$AppIssueDate,Mail_110524$BallotReturnedDate,Mail_110524$`Perm Indicator`,Mail_110524$`Ballot Application Disposition`,Mail_110524$`ID verification status`,Mail_110524$`Ballot status reason`)
+Nov_5_VOTED <- subset(Nov_5, Nov_5$Mail_110524..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+Bucks_Nov_5 <- subset(Nov_5, Nov_5$Mail_110524.CountyName == "BUCKS")
+Bucks_Nov_5_VOTED <- subset(Nov_5_VOTED, Nov_5_VOTED$Mail_110524.CountyName == "BUCKS")
+Nov_5_VOTED_R <- subset(Nov_5_VOTED, Nov_5_VOTED$Mail_110524.Party == "R")
+Nov_5_VOTED_D <- subset(Nov_5_VOTED, Nov_5_VOTED$Mail_110524.Party == "D")
+REJECTION_REASON <- table(REJECTED_110524$`Ballot Application Disposition`)
+table(Nov_5_VOTED$Mail_110524.Party)
+table(Nov_5_VOTED$Mail_110524.CountyName)
+table(Nov_5_VOTED_R$Mail_110524.CountyName)
+table(Nov_5_VOTED_D$Mail_110524.CountyName)
+head(Nov_5_VOTED_D)
+summary(Nov_5_VOTED_D)
+
+### election day 2nd update at 2pm
+ed <- data.frame(Mail_ED2024$CountyID,Mail_ED2024$CountyName,Mail_ED2024$IDNumber,Mail_ED2024$FirstName,Mail_ED2024$MiddleName,Mail_ED2024$LastName,Mail_ED2024$Addr1,Mail_ED2024$Addr2,Mail_ED2024$CSZ,Mail_ED2024$Country,Mail_ED2024$Party,Mail_ED2024$DateofBirth,Mail_ED2024$MailApplicationType,Mail_ED2024$PrecinctDesc,Mail_ED2024$AppIssueDate,Mail_ED2024$BallotReturnedDate,Mail_ED2024$`Perm Indicator`,Mail_ED2024$`Ballot Application Disposition`,Mail_ED2024$`ID verification status`,Mail_ED2024$`Ballot status reason`)
+bucks_ed <- subset(ed, ed$Mail_ED2024.CountyName == "BUCKS")
+bucks_ed_voted <- subset(bucks_ed, bucks_ed$Mail_ED2024..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+ed_voted <- subset(ed, ed$Mail_ED2024..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+R_VOTED <- subset(ed_voted, ed_voted$Mail_ED2024.Party == "R")
+D_VOTED <- subset(ed_voted, ed_voted$Mail_ED2024.Party == "D")
+table(ed$Mail_ED2024..Ballot.status.reason.)
+
+
+### 11.07.24
+REC_Mail_110724 <- subset(Mail_110724, Mail_110724$`Ballot status reason` == "RECORD - BALLOT RETURNED")
+table(Mail_110724$`Ballot Application Disposition`)
+
+### 11.18.24
+Mail_111824 <- data.frame(MailBallot_20241118$CountyID,MailBallot_20241118$CountyName,MailBallot_20241118$IDNumber,MailBallot_20241118$FirstName,MailBallot_20241118$MiddleName,MailBallot_20241118$LastName,MailBallot_20241118$Addr1,MailBallot_20241118$Addr2,MailBallot_20241118$CSZ,MailBallot_20241118$Country,MailBallot_20241118$Party,MailBallot_20241118$DateofBirth,MailBallot_20241118$MailApplicationType,MailBallot_20241118$PrecinctDesc,MailBallot_20241118$AppIssueDate,MailBallot_20241118$BallotReturnedDate,MailBallot_20241118$`Perm Indicator`,MailBallot_20241118$`Ballot Application Disposition`,MailBallot_20241118$`ID verification status`,MailBallot_20241118$`Ballot status reason`)
+table(Mail_111824$MailBallot_20241118..Ballot.status.reason.)
+REC_Mail_111824 <- subset(Mail_111824, Mail_111824$MailBallot_20241118..Ballot.status.reason. == "RECORD - BALLOT RETURNED")
+table(REC_Mail_111824$MailBallot_20241118.CountyName)
+GOP_1118_RECORDED <- subset(REC_Mail_111824, REC_Mail_111824$MailBallot_20241118.Party == "R")
+table(GOP_1118_RECORDED$MailBallot_20241118.CountyName)
+DEM_1118_RECORDED <- subset(REC_Mail_111824, REC_Mail_111824$MailBallot_20241118.Party == "D")
+table(DEM_1118_RECORDED$MailBallot_20241118.CountyName)
